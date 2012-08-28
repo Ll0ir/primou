@@ -50,12 +50,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y \
     ro.sf.lcd_density=240
 
-<<<<<<< HEAD
 # Inherit qcom proprietary blobs
 $(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
 
-=======
->>>>>>> 996840d85fdf9d2117483de27c5f5ea20ece278f
 # Override /proc/sys/vm/dirty_ratio on UMS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
@@ -72,21 +69,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
      Torch \
      FileManager \
-<<<<<<< HEAD
-     LegacyCamera
- 
-=======
-	 LegacyCamera
-	 
-##OMX TESTING
-# Additional packages
-PRODUCT_PACKAGES += \
-     libOmxCore.so \
-     libOmxVdec.so \
-     libOmxVenc.so
-	 
-	 
->>>>>>> 996840d85fdf9d2117483de27c5f5ea20ece278f
+
 # idc files
 PRODUCT_COPY_FILES += \
     device/htc/primou/prebuilt/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
@@ -134,15 +117,13 @@ PRODUCT_COPY_FILES += \
     device/htc/primou/prebuilt/modules/hidp.ko.ko:system/lib/modules/hidp.ko
     device/htc/primou/prebuilt/modules/rfcomm.ko:system/lib/modules/rfcomm.ko
 
-<<<<<<< HEAD
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_LOCALES += en_GB
 
-=======
->>>>>>> 996840d85fdf9d2117483de27c5f5ea20ece278f
+
 $(call inherit-product, build/target/product/full_base.mk)
 
 # HTC Audio
@@ -150,8 +131,6 @@ $(call inherit-product, device/htc/primou/media_a1026.mk)
 $(call inherit-product, device/htc/primou/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-<<<<<<< HEAD
-=======
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -161,5 +140,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.scrollingcache=3 \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y
-
->>>>>>> 996840d85fdf9d2117483de27c5f5ea20ece278f
