@@ -13,20 +13,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_primou BUILD_FINGERPRINT=htc_eu
 PRODUCT_NAME := cm_primou
 PRODUCT_DEVICE := primou
 
-<<<<<<< HEAD
 #PRODUCT_PACKAGES += \
     #LegacyCamera
-
-# Gallery2 replacement - QuickPic
-#PRODUCT_COPY_FILES +=  \
-  #device/htc/primou/prebuilt/app/QuickPic.apk:system/app/Gallery2.apk \
-   #device/htc/primou/prebuilt/lib/libqpicjni88.so:system/lib/libqpicjni88.so
-=======
-PRODUCT_PACKAGES += \
-    LegacyCamera
-
-# Gallery2 replacement - QuickPic
-PRODUCT_COPY_FILES +=  \
-    device/htc/primou/prebuilt/app/QuickPic.apk:system/app/Gallery2.apk \
-    device/htc/primou/prebuilt/lib/libqpicjni88.so:system/lib/libqpicjni88.so
->>>>>>> 996840d85fdf9d2117483de27c5f5ea20ece278f
