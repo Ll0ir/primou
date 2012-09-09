@@ -32,7 +32,7 @@ USE_CAMERA_STUB := true
 -include vendor/htc/primou/BoardConfigVendor.mk
 
 # Inherit qcom proprietary blobs
--include inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
+-include inherit-product, vendor/qcom/proprietary/qcom-vendor.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := primou
 
