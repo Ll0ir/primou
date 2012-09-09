@@ -31,9 +31,6 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/htc/primou/BoardConfigVendor.mk
 
-# Inherit qcom proprietary blobs
--include inherit-product, vendor/qcom/proprietary/qcom-vendor.mk
-
 TARGET_BOOTLOADER_BOARD_NAME := primou
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=primou no_console_suspend=1
@@ -55,7 +52,7 @@ TARGET_PROVIDES_LIBLIGHTS := true
 BOARD_HAVE_HTC_FFC := true
 BOARD_USE_REVERSE_FFC := true
 
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DSCREEN_RELEASE -DREFRESH_RATE=60 -DICS_CAMERA_BLOB -DRIL_VERSION_2_SUPPORT -DQCOM_NO_SECURE_PLAYBACK
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DSCREEN_RELEASE -DREFRESH_RATE=60 -DRIL_VERSION_2_SUPPORT -DQCOM_NO_SECURE_PLAYBACK
 
 BOARD_PREBUILT_LIBAUDIO := false
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := false
@@ -102,14 +99,17 @@ TARGET_PREBUILT_KERNEL := device/htc/primou/prebuilt/root/kernel
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
-BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
-#BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk0p32
 BOARD_USES_MMCUTILS := false
 BOARD_HAS_NO_MISC_PARTITION := false
 
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file
+
+#testing of lun files
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun1/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
 
 # Webkit
 ENABLE_WEBGL := true
