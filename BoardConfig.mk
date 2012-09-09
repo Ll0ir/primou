@@ -31,6 +31,9 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/htc/primou/BoardConfigVendor.mk
 
+# Inherit qcom proprietary blobs
+$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
+
 TARGET_BOOTLOADER_BOARD_NAME := primou
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=primou no_console_suspend=1
