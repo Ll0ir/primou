@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += \
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     device/htc/primou/prebuilt/root/init.primou.rc:root/init.primou.rc \
     device/htc/primou/prebuilt/root/init.usb.rc:root/init.usb.rc \
     device/htc/primou/prebuilt/root/init.rc:root/init.rc \
@@ -35,7 +35,6 @@ PRODUCT_COPY_FILES += \
     device/htc/primou/prebuilt/root/ueventd.primou.rc:root/ueventd.primou.rc
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 ## (2) Also get non-open-source GSM-specific aspects if available
@@ -50,12 +49,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y \
     ro.sf.lcd_density=240
 
-# Inherit qcom proprietary blobs
-$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
-
 # Override /proc/sys/vm/dirty_ratio on UMS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
+
+# Inherit qcom proprietary blobs
+$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/primou/overlay
 
@@ -68,7 +67,6 @@ PRODUCT_PACKAGES += \
 # Additional packages
 PRODUCT_PACKAGES += \
      Torch \
-     FileManager \
 
 # idc files
 PRODUCT_COPY_FILES += \
@@ -91,13 +89,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/primou/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
-# media config xml file
-PRODUCT_COPY_FILES += \
-    device/htc/primou/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-	device/htc/primou/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/htc/primou/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml	
-
-
 # Kernel modules
 #PRODUCT_COPY_FILES += \
 
@@ -109,14 +100,6 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
-
-PRODUCT_COPY_FILES += \
-    device/htc/primou/prebuilt/modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko
-    device/htc/primou/prebuilt/modules/bnep.ko:system/lib/modules/bnep.ko
-    device/htc/primou/prebuilt/modules/hci_uart.ko:system/lib/modules/hci_uart.ko
-    device/htc/primou/prebuilt/modules/hidp.ko.ko:system/lib/modules/hidp.ko
-    device/htc/primou/prebuilt/modules/rfcomm.ko:system/lib/modules/rfcomm.ko
-
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -131,12 +114,3 @@ $(call inherit-product, device/htc/primou/media_a1026.mk)
 $(call inherit-product, device/htc/primou/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-
-# Extra properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.setupwizard.enable_bypass=1 \
-    ro.com.google.locationfeatures=1 \
-    ro.com.google.gmsversion=2.3_r3 \
-    persist.sys.scrollingcache=3 \
-    dalvik.vm.lockprof.threshold=500 \
-    dalvik.vm.dexopt-flags=m=y
