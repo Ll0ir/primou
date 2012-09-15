@@ -13,5 +13,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_primou BUILD_FINGERPRINT=htc_eu
 PRODUCT_NAME := cm_primou
 PRODUCT_DEVICE := primou
 
-#PRODUCT_PACKAGES += \
-    #LegacyCamera
+PRODUCT_COPY_FILES += \
+    device/htc/primou/prebuilt/app/UsbMassStorageToggle.apk:system/app/UsbMassStorageToggle.apk

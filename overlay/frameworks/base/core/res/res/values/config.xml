@@ -191,8 +191,5 @@
     <!-- Values greater or equal to 0 will enable electronbeam screen-on
 animation with the specified delay (in milliseconds), -1 will disable the animation -->
     <integer name="config_screenOnAnimation">0</integer>
-	
-	 <!-- Testing bluetooth wake lock problem -->
-    <bool name="config_bluetooth_adapter_quick_switch">false</bool>
 
 </resources>

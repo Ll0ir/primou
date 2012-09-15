@@ -52,6 +52,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Override /proc/sys/vm/dirty_ratio on UMS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
+	
+# Inherit qcom proprietary blobs
+$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/primou/overlay
 
@@ -64,7 +67,11 @@ PRODUCT_PACKAGES += \
 # Additional packages
 PRODUCT_PACKAGES += \
      Torch \
-     FileManager \
+     FileExplorer \
+	 PinyinIME \
+	 twidere \
+	 Loggy \
+	 AndroidAsync
 
 # idc files
 PRODUCT_COPY_FILES += \

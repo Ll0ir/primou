@@ -37,6 +37,11 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=primou no_console_s
 BOARD_KERNEL_BASE := 0x14300000
 BOARD_KERNEL_PAGE_SIZE := 4096
 
+TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+TARGET_USE_SCORPION_PLD_SET := true
+TARGET_SCORPION_BIONIC_PLDOFFS := 6
+TARGET_SCORPION_BIONIC_PLDSIZE := 128
+
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := primou
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1200
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
@@ -46,6 +51,8 @@ TARGET_PROVIDES_LIBLIGHTS := true
 
 BOARD_HAVE_HTC_FFC := true
 BOARD_USE_REVERSE_FFC := true
+
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DSCREEN_RELEASE -DREFRESH_RATE=60 -DRIL_VERSION_2_SUPPORT -DQCOM_NO_SECURE_PLAYBACK
 
 BOARD_PREBUILT_LIBAUDIO := false
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := false
@@ -85,24 +92,24 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 
-#TARGET_KERNEL_SOURCE := kernel/htc/msm7x30
-#TARGET_KERNEL_CONFIG := cyanogen_primou_defconfig
-#TARGET_PREBUILT_KERNEL := device/htc/primou/prebuilt/root/kernel
+TARGET_KERNEL_SOURCE := kernel/htc/msm7x30
+TARGET_KERNEL_CONFIG := cyanogen_primou_defconfig
+TARGET_PREBUILT_KERNEL := device/htc/primou/prebuilt/root/kernel
 
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
-BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk0p32
 BOARD_USES_MMCUTILS := false
 BOARD_HAS_NO_MISC_PARTITION := false
 
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
-#testing
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun1/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun2/file
+#testing of lun files
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun1/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
 
 # Webkit
 ENABLE_WEBGL := true
@@ -117,6 +124,6 @@ TARGET_HAVE_BYPASS := true
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 TARGET_NO_HW_VSYNC := true 
-BOARD_USES_HTC_CAMERA := true
+
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
