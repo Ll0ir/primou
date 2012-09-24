@@ -18,4 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_primou.mk
+    $(LOCAL_DIR)/primou.mk
