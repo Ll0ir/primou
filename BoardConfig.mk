@@ -112,8 +112,8 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadge
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
 
 #TESTING
-TARGET_USES_PMEM := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
+#TARGET_USES_PMEM := true
+#BOARD_NEEDS_MEMORYHEAPPMEM := true
 TARGET_USES_SF_BYPASS := true
 TARGET_HAVE_BYPASS := true
 #TARGET_BOOTANIMATION_PRELOAD := true
