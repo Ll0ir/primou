@@ -111,20 +111,3 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 #testing of lun files
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun1/file
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
-
-# Webkit
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
-
-#TESTING
-TARGET_USES_PMEM := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_SF_BYPASS := true
-TARGET_HAVE_BYPASS := true
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_USE_RGB565 := true
-TARGET_NO_HW_VSYNC := true 
-
-# RIL
-BOARD_USE_NEW_LIBRIL_HTC := true
