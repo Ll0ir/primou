@@ -105,20 +105,4 @@ BOARD_HAS_NO_MISC_PARTITION := false
 
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
-
-#testing of lun files
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun1/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
-
-#TESTING
-#TARGET_USES_PMEM := true
-#BOARD_NEEDS_MEMORYHEAPPMEM := true
-TARGET_USES_SF_BYPASS := true
-TARGET_HAVE_BYPASS := true
-#TARGET_BOOTANIMATION_PRELOAD := true
-#TARGET_BOOTANIMATION_USE_RGB565 := true
-TARGET_NO_HW_VSYNC := true
-
-# RIL
-BOARD_USE_NEW_LIBRIL_HTC := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
