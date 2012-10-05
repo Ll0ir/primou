@@ -152,14 +152,20 @@ static void set_speaker_light_locked_batt (struct light_device_t *dev, struct li
 				case LED_AMBER:
 					write_int (AMBER_LED_FILE, 1);
 					write_int (GREEN_LED_FILE, 0);
+					write_int (AMBER_BLINK_FILE, 0);
+					write_int (GREEN_BLINK_FILE, 0);
 					break;
 				case LED_GREEN:
 					write_int (GREEN_LED_FILE, 1);
 					write_int (AMBER_LED_FILE, 0);
+					write_int (AMBER_BLINK_FILE, 0);
+					write_int (GREEN_BLINK_FILE, 0);
 					break;
 				case LED_BLANK:
 					write_int (AMBER_LED_FILE, 0);
 					write_int (GREEN_LED_FILE, 0);
+					write_int (AMBER_BLINK_FILE, 0);
+					write_int (GREEN_BLINK_FILE, 0);
 					break;
 				default:
 					ALOGE("set_led_state colorRGB=%08X, unknown color\n",
@@ -172,14 +178,20 @@ static void set_speaker_light_locked_batt (struct light_device_t *dev, struct li
 				case LED_AMBER:
 					write_int (AMBER_LED_FILE, 1);
 					write_int (GREEN_LED_FILE, 0);
+					write_int (AMBER_BLINK_FILE, 0);
+					write_int (GREEN_BLINK_FILE, 0);
 					break;
 				case LED_GREEN:
 					write_int (AMBER_LED_FILE, 0);
 					write_int (GREEN_LED_FILE, 1);
+					write_int (AMBER_BLINK_FILE, 0);
+					write_int (GREEN_BLINK_FILE, 0);
 					break;
 				case LED_BLANK:
 					write_int (AMBER_LED_FILE, 0);
 					write_int (GREEN_LED_FILE, 0);
+					write_int (AMBER_BLINK_FILE, 0);
+					write_int (GREEN_BLINK_FILE, 0);
 					break;
 
 			}
@@ -202,9 +214,13 @@ static void set_speaker_light_locked_dual (struct light_device_t *dev, struct li
 	if (bcolor == LED_AMBER) {
 		write_int (AMBER_LED_FILE, 1);
 		write_int (AMBER_BLINK_FILE, 1);
+		write_int (GREEN_LED_FILE, 0);
+		write_int (GREEN_BLINK_FILE, 0);
 	} else if (bcolor == LED_GREEN) {
 		write_int (GREEN_LED_FILE, 1);
 		write_int (GREEN_BLINK_FILE, 1);
+		write_int (AMBER_LED_FILE, 0);
+		write_int (AMBER_BLINK_FILE, 0);
 	} else {
 		ALOGE("set_led_state (dual) unexpected color: bcolorRGB=%08x\n", bcolorRGB);
 	}
