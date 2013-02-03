@@ -29,13 +29,13 @@ USE_CAMERA_STUB := true
 -include device/htc/msm7x30-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/htc/primou/BoardConfigVendor.mk
+-include vendor/htc/protou/BoardConfigVendor.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := primou
+TARGET_BOOTLOADER_BOARD_NAME := protou
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=primou no_console_suspend=1
-BOARD_KERNEL_BASE := 0x14300000
-BOARD_KERNEL_PAGE_SIZE := 4096
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
+BOARD_KERNEL_BASE := 0x03200000
+BOARD_KERNEL_PAGESIZE := 2048
 
 TARGET_ARCH := arm
 TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
@@ -43,7 +43,7 @@ TARGET_USE_SCORPION_PLD_SET := true
 TARGET_SCORPION_BIONIC_PLDOFFS := 6
 TARGET_SCORPION_BIONIC_PLDSIZE := 128
 
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := primou
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := protou
 BOARD_VENDOR_QCOM_AMSS_VERSION := 1200
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
@@ -69,9 +69,9 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE                := bcmdhd
-WIFI_DRIVER_FW_PATH_STA          := "/system/etc/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcmdhd_p2p.bin"
+WIFI_DRIVER_FW_PATH_STA          := "/system/etc/firmware/fw_bcm4330.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcm4330_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4330_p2p.bin"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
 
 # cat /proc/emmc
@@ -86,16 +86,15 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 #mmcblk0p29: 00040000 00000200 "pdata"
 
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 585101312
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 1232072704
 BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
-BOARD_FLASH_BLOCK_SIZE := 262144
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8909824
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1004535296
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1291845120
+BOARD_FLASH_BLOCK_SIZE := 4096
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
 
-TARGET_KERNEL_SOURCE := kernel/htc/msm7x30
-TARGET_KERNEL_CONFIG := cyanogen_primou_defconfig
-TARGET_PREBUILT_KERNEL := device/htc/primou/prebuilt/root/kernel
+TARGET_PREBUILT_KERNEL := device/htc/protou/kernel
 
 # This is needed so CWM will function properly
 
@@ -111,11 +110,20 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 BOARD_UMS_LUNFILE := /sys/class/android_usb/f_mass_storage/lun0/file
 
+#TWRP
+# Flags
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+
+
+DEVICE_RESOLUTION := 480x800
+TW_INCLUDE_DUMLOCK := true
 #Lun File testing
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun1/file
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
 
 # Script
 
-TARGET_RECOVERY_INITRC := device/htc/primou/recovery/init-cwm.rc
+TARGET_RECOVERY_INITRC := device/htc/protou/recovery/init.recovery.rc
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file

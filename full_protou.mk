@@ -29,10 +29,10 @@ PRODUCT_PACKAGES := \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from primou device
-$(call inherit-product, device/htc/primou/device.mk)
+$(call inherit-product, device/htc/protou/device.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_primou
-PRODUCT_DEVICE := primou
+PRODUCT_NAME := full_protou
+PRODUCT_DEVICE := protou
 PRODUCT_BRAND := HTC
-PRODUCT_MODEL := One V
+PRODUCT_MODEL := Des X
