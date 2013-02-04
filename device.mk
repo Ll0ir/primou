@@ -96,7 +96,12 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-PRODUCT_LOCALES += en_GB
+# English locale
+PRODUCT_LOCALES := en
+
+# High Density art
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 
 $(call inherit-product, build/target/product/full_base.mk)
