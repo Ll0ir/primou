@@ -120,9 +120,6 @@ COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
 
 DEVICE_RESOLUTION := 480x800
 TW_INCLUDE_DUMLOCK := true
-#Lun File testing
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun1/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_otg/msm_hsusb/gadget/lun2/file
 
 # Script
 
